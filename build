@@ -1,51 +1,115 @@
 #!/bin/bash
-# Version 22
+set -e
 
+# === Paths ===
 packageDir="package"
-i18nDir="package/translate"
-qtMinVer="6.6"
-kfMinVer="6.0"
-plasmaMinVer="6.0"
+i18nDir="$packageDir/translate"
+metadataJson="$packageDir/metadata.json"
+metadataDesktop="$packageDir/metadata.desktop"
+
+# === Extract plugin info ===
+if [[ -f "$metadataJson" ]]; then
+    moBasename=$(jq -r '.KPlugin.Id // empty' "$metadataJson")
+    plasmaMinVer=$(jq -r '.["X-Plasma-API-Minimum-Version"] // empty' "$metadataJson")
+    kfMinVer=$(jq -r '.["X-KDE-Frameworks-Version"] // empty' "$metadataJson")
+    qtMinVer=$(jq -r '.["X-KDE-Qt-Version"] // empty' "$metadataJson")
+elif [[ -f "$metadataDesktop" ]]; then
+    moBasename=$(grep -E '^X-KDE-PluginInfo-Name=' "$metadataDesktop" | cut -d= -f2)
+    plasmaMinVer=$(grep -E '^X-Plasma-RequiredPlasmaVersion=' "$metadataDesktop" | cut -d= -f2)
+    kfMinVer=$(grep -E '^X-KDE-Frameworks-Version=' "$metadataDesktop" | cut -d= -f2)
+    qtMinVer=$(grep -E '^X-KDE-Qt-Version=' "$metadataDesktop" | cut -d= -f2)
+else
+    echo "[build] Error: No metadata found"
+    exit 1
+fi
+
+# === Validate ===
+if [[ -z "$moBasename" || -z "$plasmaMinVer" ]]; then
+    echo "[build] Error: Missing required fields"
+    exit 1
+fi
+
 filenameTag="plasma${plasmaMinVer}"
-filenameTag=`echo "$filenameTag" | sed 's/\./\-/'`
+filenameTag=$(echo "$filenameTag" | sed 's/\./-/')
 
 function printHelp() {
-	echo "sh ./build                For building a .zip for KDE Store"
-	echo "sh ./build --i18n-only    To package for distros like Arch we only need to convert"
-	echo "                          translation files .po => .mo with gettext's msgfmt."
+    echo "Usage:"
+    echo "  ./build             → Build .zip for KDE Store"
+    echo "  ./build --i18n-only → Convert .po to .mo for distro packaging"
+    echo "  ./build --help      → Show this help message"
 }
 
-# Builds .zip or .plasmoid for uploading to https://store.kde.org
 function buildZip() {
-	python3 ./kpac --dir "$packageDir" --i18ndir "$i18nDir" \
-		build --tag "$filenameTag"
+    # === Extract metadata ===
+    if [[ -f "$metadataJson" ]]; then
+        packageId=$(jq -r '.KPlugin.Id // empty' "$metadataJson")
+        packageVersion=$(jq -r '.KPlugin.Version // empty' "$metadataJson")
+    elif [[ -f "$metadataDesktop" ]]; then
+        packageId=$(grep -E '^X-KDE-PluginInfo-Name=' "$metadataDesktop" | cut -d= -f2)
+        packageVersion=$(grep -E '^Version=' "$metadataDesktop" | cut -d= -f2)
+    else
+        echo "[build] Error: No metadata found"
+        exit 1
+    fi
+
+    if [[ -z "$packageId" || -z "$packageVersion" ]]; then
+        echo "[build] Error: Missing package name or version"
+        exit 1
+    fi
+
+    packageName="${packageId##*.}"  # strip org.latgardi. → darwinmenu
+    buildTag="-${filenameTag}"      # e.g. -plasma6-0
+    buildExt="zip"
+    buildFilename="${packageName}-v${packageVersion}${buildTag}"
+    buildFilenameExt="${buildFilename}.${buildExt}"
+
+    echo "[build] buildTag: $buildTag"
+    echo "[build] buildFilename: $buildFilename"
+    echo "[build] buildExt: .$buildExt"
+    echo "[build] buildFilenameExt: $buildFilenameExt"
+    echo ""
+
+    # === Cleanup old archives ===
+    for old in ./*.${buildExt}; do
+        [[ -e "$old" ]] || continue
+        echo "DELETED: $old"
+        rm -f "$old"
+    done
+
+    # === Create archive ===
+    zip -r "$buildFilename.zip" "$packageDir" \
+    -x "$packageDir/translate/translation" \
+    -x "$packageDir/translate/translation-lib/*"
+
+    # === Checksums ===
+    if command -v md5sum &> /dev/null; then
+        md5=$(md5sum "$buildFilenameExt" | awk '{print $1}')
+        echo "[build] md5: $md5"
+    fi
+
+    if command -v sha256sum &> /dev/null; then
+        sha256=$(sha256sum "$buildFilenameExt" | awk '{print $1}')
+        echo "[build] sha256: $sha256"
+    fi
 }
 
-# For distributing with distro packaging (like AUR) we only need to convert
-# the translation *.po files to *.mo files with gettext's msgfmt command.
-# Eg: "package/translate/fr.po" => "package/contents/locale/fr/LC_MESSAGES/plasma_applet_com.github.zren.widgetname.mo"
+
 function buildI18nOnly() {
-	python3 ./kpac --dir "$packageDir" --i18ndir "$i18nDir" \
-		i18n --no-merge
+    echo "[i18n] Converting .po to .mo..."
+    for po in "$i18nDir"/*.po; do
+        lang=$(basename "$po" .po)
+        outdir="$packageDir/contents/locale/$lang/LC_MESSAGES"
+        mkdir -p "$outdir"
+        msgfmt "$po" -o "$outdir/${moBasename}.mo"
+        echo "  ✔ $lang → ${moBasename}.mo"
+    done
+    echo "[i18n] Done."
 }
 
-showHelp=false
-i18nOnly=false
-for arg in "$@"; do
-	case "$arg" in
-		--i18n-only) i18nOnly=true;;
-		-h|--help) showHelp=true;;
-		*) ;;
-	esac
-done
-
-if $showHelp; then
-	# sh ./build --help
-	printHelp
-elif $i18nOnly; then
-	# sh ./build --i18n-only
-	buildI18nOnly
-else
-	# sh ./build
-	buildZip
-fi
+# === Argument handling ===
+case "$1" in
+    --i18n-only) buildI18nOnly ;;
+    -h|--help) printHelp ;;
+    ""|--zip) buildZip ;;
+    *) echo "[build] Unknown argument: $1"; printHelp; exit 1 ;;
+esac
