@@ -20,23 +20,43 @@ KCM.SimpleKCM {
     property bool listLoaded: false
 
     Component.onCompleted: {
+        localizeModel()
         syncModelFromProperties()
-        
+
         listLoader.active = true
         listLoaded = true
     }
 
     ListModel {
         id: buttonsModel
-        ListElement { key: "showAboutThisPCButton"; text: i18n("About This PC"); checked: false }
-        ListElement { key: "showSystemSettingsButton"; text: i18n("System Settings"); checked: false }
-        ListElement { key: "showAppStoreButton"; text: i18n("App Store"); checked: false }
-        ListElement { key: "showForceQuitButton"; text: i18n("Force Quit"); checked: false }
-        ListElement { key: "showSleepButton"; text: i18n("Sleep"); checked: false }
-        ListElement { key: "showRestartButton"; text: i18n("Restart"); checked: false }
-        ListElement { key: "showShutdownButton"; text: i18n("Shutdown"); checked: false }
-        ListElement { key: "showLockScreenButton"; text: i18n("Lock Screen"); checked: false }
-        ListElement { key: "showLogOutButton"; text: i18n("Log Out"); checked: false }
+        ListElement { key: "showAboutThisPCButton"; text: ""; checked: false }
+        ListElement { key: "showSystemSettingsButton"; text: ""; checked: false }
+        ListElement { key: "showAppStoreButton"; text: ""; checked: false }
+        ListElement { key: "showForceQuitButton"; text: ""; checked: false }
+        ListElement { key: "showSleepButton"; text: ""; checked: false }
+        ListElement { key: "showRestartButton"; text: ""; checked: false }
+        ListElement { key: "showShutdownButton"; text: ""; checked: false }
+        ListElement { key: "showLockScreenButton"; text: ""; checked: false }
+        ListElement { key: "showLogOutButton"; text: ""; checked: false }
+    }
+
+    function localizeModel() {
+        for (var i = 0; i < buttonsModel.count; ++i) {
+            var key = buttonsModel.get(i).key;
+            var label = "";
+            switch (key) {
+                case "showAboutThisPCButton": label = i18n("About This PC"); break;
+                case "showSystemSettingsButton": label = i18n("System Settings"); break;
+                case "showAppStoreButton": label = i18n("App Store"); break;
+                case "showForceQuitButton": label = i18n("Force Quit"); break;
+                case "showSleepButton": label = i18n("Sleep"); break;
+                case "showRestartButton": label = i18n("Restart"); break;
+                case "showShutdownButton": label = i18n("Shutdown"); break;
+                case "showLockScreenButton": label = i18n("Lock Screen"); break;
+                case "showLogOutButton": label = i18n("Log Out"); break;
+            }
+            buttonsModel.setProperty(i, "text", label);
+        }
     }
 
     function syncModelFromProperties() {
@@ -44,15 +64,15 @@ KCM.SimpleKCM {
             var key = buttonsModel.get(i).key;
             var val = false;
             switch (key) {
-            case "showAboutThisPCButton": val = cfg_showAboutThisPCButton; break;
-            case "showSystemSettingsButton": val = cfg_showSystemSettingsButton; break;
-            case "showAppStoreButton": val = cfg_showAppStoreButton; break;
-            case "showForceQuitButton": val = cfg_showForceQuitButton; break;
-            case "showSleepButton": val = cfg_showSleepButton; break;
-            case "showRestartButton": val = cfg_showRestartButton; break;
-            case "showShutdownButton": val = cfg_showShutdownButton; break;
-            case "showLockScreenButton": val = cfg_showLockScreenButton; break;
-            case "showLogOutButton": val = cfg_showLogOutButton; break;
+                case "showAboutThisPCButton": val = cfg_showAboutThisPCButton; break;
+                case "showSystemSettingsButton": val = cfg_showSystemSettingsButton; break;
+                case "showAppStoreButton": val = cfg_showAppStoreButton; break;
+                case "showForceQuitButton": val = cfg_showForceQuitButton; break;
+                case "showSleepButton": val = cfg_showSleepButton; break;
+                case "showRestartButton": val = cfg_showRestartButton; break;
+                case "showShutdownButton": val = cfg_showShutdownButton; break;
+                case "showLockScreenButton": val = cfg_showLockScreenButton; break;
+                case "showLogOutButton": val = cfg_showLogOutButton; break;
             }
             buttonsModel.setProperty(i, "checked", val);
         }
@@ -62,15 +82,15 @@ KCM.SimpleKCM {
         var key = buttonsModel.get(index).key;
         var checked = buttonsModel.get(index).checked;
         switch (key) {
-        case "showAboutThisPCButton": cfg_showAboutThisPCButton = checked; break;
-        case "showSystemSettingsButton": cfg_showSystemSettingsButton = checked; break;
-        case "showAppStoreButton": cfg_showAppStoreButton = checked; break;
-        case "showForceQuitButton": cfg_showForceQuitButton = checked; break;
-        case "showSleepButton": cfg_showSleepButton = checked; break;
-        case "showRestartButton": cfg_showRestartButton = checked; break;
-        case "showShutdownButton": cfg_showShutdownButton = checked; break;
-        case "showLockScreenButton": cfg_showLockScreenButton = checked; break;
-        case "showLogOutButton": cfg_showLogOutButton = checked; break;
+            case "showAboutThisPCButton": cfg_showAboutThisPCButton = checked; break;
+            case "showSystemSettingsButton": cfg_showSystemSettingsButton = checked; break;
+            case "showAppStoreButton": cfg_showAppStoreButton = checked; break;
+            case "showForceQuitButton": cfg_showForceQuitButton = checked; break;
+            case "showSleepButton": cfg_showSleepButton = checked; break;
+            case "showRestartButton": cfg_showRestartButton = checked; break;
+            case "showShutdownButton": cfg_showShutdownButton = checked; break;
+            case "showLockScreenButton": cfg_showLockScreenButton = checked; break;
+            case "showLogOutButton": cfg_showLogOutButton = checked; break;
         }
     }
 
