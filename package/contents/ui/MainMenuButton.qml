@@ -132,6 +132,7 @@ AbstractButton {
 
         QtLabs.MenuItem {
             id: aboutThisPCMenuItem
+            visible: Plasmoid.configuration.showAboutThisPCButton
             text: i18n("About This PC")
             onTriggered: menuButton.aboutThisPCUseCommand
                 ? executable.exec(menuButton.aboutThisPCCommand)
@@ -184,60 +185,63 @@ AbstractButton {
 
         QtLabs.MenuItem {
             id: systemSettingsMenuItem
+            visible: Plasmoid.configuration.showSystemSettingsButton
             text: i18n("System Settings...")
-            onTriggered: {
-                KCMLauncher.openSystemSettings("");
-            }
+            onTriggered: KCMLauncher.openSystemSettings("")
         }
 
         QtLabs.MenuItem {
             id: appStoreMenuItem
+            visible: Plasmoid.configuration.showAppStoreButton
             text: i18n("App Store...")
-            onTriggered: {
-                executable.exec(menuButton.appStoreCommand)
-            }
+            onTriggered: executable.exec(menuButton.appStoreCommand)
         }
 
         QtLabs.MenuSeparator {}
 
         QtLabs.MenuItem {
+            visible: Plasmoid.configuration.showForceQuitButton
             text: i18n("Force Quit...")
-            onTriggered: {
-                root.forceQuit.show()
-            }
+            onTriggered: root.forceQuit.show()
             shortcut: Plasmoid.configuration.shortcutOpensPlasmoid ? null : plasmoid.globalShortcut
         }
 
         QtLabs.MenuSeparator {}
-
+        
         QtLabs.MenuItem {
-            visible: sm.canSuspend
+            visible: Plasmoid.configuration.showSleepButton && sm.canSuspend
             text: i18n("Sleep")
             onTriggered: sm.suspend()
         }
+
         QtLabs.MenuItem {
+            visible: Plasmoid.configuration.showRestartButton
             text: i18n("Restart...")
-            onTriggered: sm.requestReboot();
+            onTriggered: sm.requestReboot()
         }
+
         QtLabs.MenuItem {
+            visible: Plasmoid.configuration.showShutdownButton
             text: i18n("Shut Down...")
-            onTriggered: sm.requestShutdown();
+            onTriggered: sm.requestShutdown()
         }
 
         QtLabs.MenuSeparator {}
 
         QtLabs.MenuItem {
+            visible: Plasmoid.configuration.showLockScreenButton
             text: i18n("Lock Screen")
             shortcut: "Meta+L"
             onTriggered: sm.lock()
         }
+
         QtLabs.MenuItem {
-            text: {
-                i18n("Log Out %1...", kUser.fullName)
-            }
+            visible: Plasmoid.configuration.showLogOutButton
+            text: i18n("Log Out %1...", kUser.fullName)
             shortcut: "Ctrl+Alt+Delete"
             onTriggered: sm.requestLogout()
         }
+
         onAboutToHide: menu.isOpened = false
         onAboutToShow: menu.isOpened = true
     }
@@ -252,6 +256,13 @@ AbstractButton {
 
         function exec(cmd) {
             executable.connectSource(cmd)
+        }
+    }
+
+    Connections {
+    target: Plasmoid
+        function onConfigurationChanged() {
+            menu.forceLayout()
         }
     }
 }

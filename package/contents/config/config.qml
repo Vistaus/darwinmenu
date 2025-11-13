@@ -7,6 +7,13 @@ ConfigModel {
         icon: "configure"
         source: "config/configGeneral.qml"
     }
+
+    ConfigCategory {
+        name: i18n("Buttons")
+        icon: "configure"
+        source: "config/configButtons.qml"
+    }
+
     ConfigCategory {
         name: i18n("Custom commands")
         icon: "utilities-terminal-symbolic"

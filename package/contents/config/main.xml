@@ -10,30 +10,37 @@
       <label>Use rectangle button shape.</label>
       <default>true</default>
     </entry>
+
     <entry name="icon" type="String">
       <label>The name of the icon to use for the compact representation (e.g. on a small panel).</label>
       <default>start-here-kde</default>
     </entry>
+
     <entry name="useCustomButtonImage" type="Bool">
       <label>Whether to use a custom image instead of an icon in the compact representation (e.g. on a small panel).</label>
       <default>false</default>
     </entry>
+
     <entry name="customButtonImage" type="Url">
       <label>The URL of the custom image to use instead of an icon in the compact representation (e.g. on a small panel).</label>
       <default></default>
     </entry>
+
     <entry name="useFixedIconSize" type="Bool">
       <label>Use fixed icon size.</label>
       <default>false</default>
     </entry>
+
     <entry name="iconSizePercent" type="Int">
       <label>Relative icon size in percent.</label>
       <default>100</default>
     </entry>
+
     <entry name="fixedIconSize" type="Int">
       <label>Fixed icon size.</label>
       <default>48</default>
     </entry>
+
     <entry name="resizeIconToRoot" type="Bool">
       <label>Resize image if it's size is larger than root.</label>
       <default>false</default>
@@ -53,22 +60,75 @@
       <default>plasma-discover</default>
     </entry>
   </group>
+
+  <group name="Custom">
     <entry name="customCommandsInSeparateMenu" type="Bool">
       <label>Show custom commands in separate menu</label>
       <default>false</default>
     </entry>
+
     <entry name="customCommandsMenuTitle" type="String">
       <label>Custom commands menu title</label>
       <default></default>
     </entry>
+
     <entry name="shortcutOpensPlasmoid" type="Bool">
       <label>Global shortcut opens plasmoid menu</label>
       <default>false</default>
     </entry>
+
     <entry name="commands" type="StringList">
       <label>List of custom commands</label>
       <default></default>
     </entry>
+  </group>
+
+  <group name="Buttons">
+    <entry name="showAboutThisPCButton" type="Bool">
+      <label>Show About This PC button</label>
+      <default>true</default>
+    </entry>
+
+    <entry name="showSystemSettingsButton" type="Bool">
+      <label>Show System Settings button</label>
+      <default>true</default>
+    </entry>
+
+    <entry name="showAppStoreButton" type="Bool">
+      <label>Show App Store button</label>
+      <default>true</default>
+    </entry>
+
+    <entry name="showForceQuitButton" type="Bool">
+      <label>Show Force Quit button</label>
+      <default>true</default>
+    </entry>
+
+    <entry name="showSleepButton" type="Bool">
+      <label>Show Sleep button</label>
+      <default>true</default>
+    </entry>
+
+    <entry name="showRestartButton" type="Bool">
+      <label>Show Restart button</label>
+      <default>true</default>
+    </entry>
+
+    <entry name="showShutdownButton" type="Bool">
+      <label>Show Shutdown button</label>
+      <default>true</default>
+    </entry>
+
+    <entry name="showLockScreenButton" type="Bool">
+      <label>Show Lock Screen button</label>
+      <default>true</default>
+    </entry>
+
+    <entry name="showLogOutButton" type="Bool">
+      <label>Show Log Out button</label>
+      <default>true</default>
+    </entry>
+  </group>
 </kcfg>
 
 

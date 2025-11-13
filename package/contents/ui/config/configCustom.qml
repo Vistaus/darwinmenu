@@ -69,7 +69,7 @@ KCM.ScrollViewKCM {
             }
         }
         onDataChanged: index => {
-            const command = customCommands.get(index.row)
+            const command = customCommands.get(index)
             const entry = JSON.stringify(command)
             configCustom.cfg_commands[index.row] = entry
         }
