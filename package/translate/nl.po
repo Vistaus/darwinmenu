@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Darwin Menu\n"
-"Report-Msgid-Bugs-To: https://github.com/latgardi\n"
-"POT-Creation-Date: 2024-05-23 17:46+0300\n"
-"PO-Revision-Date: 2024-06-16 23:49+0200\n"
+"Report-Msgid-Bugs-To: https://github.com/lasaczka\n"
+"POT-Creation-Date: 2025-11-14 01:09+0300\n"
+"PO-Revision-Date: 2025-11-15 20:13+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl_NL\n"
@@ -16,203 +16,265 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.08.0\n"
+"X-Generator: Poedit 3.8\n"
 
-#: ../contents/config/config.qml
+#: contents/config/config.qml:6
+msgctxt "i18n@config.qml:6"
 msgid "General"
 msgstr "Algemeen"
 
-#: ../contents/config/config.qml
+#: contents/config/config.qml:12
+msgctxt "i18n@config.qml:12"
+msgid "Buttons"
+msgstr "Knoppen"
+
+#: contents/config/config.qml:18
+msgctxt "i18n@config.qml:18"
 msgid "Custom commands"
 msgstr "Eigen opdrachten"
 
-#: ../contents/ui/ForceQuit/ConfirmationDialog.qml
-msgid "Do you want to force %1 to quit?"
-msgstr "Weet je zeker dat je ‘%1’ gedwongen wilt afsluiten?"
-
-#: ../contents/ui/ForceQuit/ConfirmationDialog.qml
+#: contents/ui/ForceQuit/ConfirmationDialog.qml:87
+msgctxt "i18n@ConfirmationDialog.qml:87"
 msgid "You will lose any unsaved changes."
 msgstr "Alle niet-opgeslagen wijzigingen worden gewist."
 
-#: ../contents/ui/ForceQuit/ConfirmationDialog.qml
+#: contents/ui/ForceQuit/ConfirmationDialog.qml:98
+msgctxt "i18n@ConfirmationDialog.qml:98"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: ../contents/ui/ForceQuit/ConfirmationDialog.qml ../contents/ui/ForceQuit/ForceQuit.qml ../contents/ui/config/configGeneral.qml
+#: contents/ui/ForceQuit/ConfirmationDialog.qml:105
 msgctxt "force quit action"
 msgid "Force Quit"
 msgstr "Gedwongen afsluiten"
 
-#: ../contents/ui/ForceQuit/ForceQuit.qml
-msgctxt "force quit title"
-msgid "Force Quit"
-msgstr "Gedwongen afsluiten"
-
-#: ../contents/ui/ForceQuit/ForceQuit.qml
+#: contents/ui/ForceQuit/ForceQuit.qml:45
+msgctxt "i18n@ForceQuit.qml:45"
 msgid ""
 "If an app doesn't respond for a while, select its name and click Force Quit."
 msgstr ""
-"Als het programma in kwestie niet reageert, klik dan op de naam en vervolgens"
-" op ‘Gedwongen afsluiten’."
+"Als het programma in kwestie niet reageert, klik dan op de naam en "
+"vervolgens op ‘Gedwongen afsluiten’."
 
-#: ../contents/ui/ForceQuit/ForceQuit.qml
+#: contents/ui/ForceQuit/ForceQuit.qml:130
+msgctxt "i18n@ForceQuit.qml:130"
 msgid "Configure this window to open on global shortcut."
 msgstr "Stel in dat dit venster via een globale sneltoets kan worden geopend."
 
-#: ../contents/ui/ForceQuit/ForceQuit.qml
-msgid "You can open this window by pressing %1."
-msgstr "Open dit venster met behulp van de sneltoets ‘%1’."
-
-#: ../contents/ui/MainMenuButton.qml
+#: contents/ui/MainMenuButton.qml:136
+msgctxt "i18n@MainMenuButton.qml:136"
 msgid "About This PC"
 msgstr "Over deze computer"
 
-#: ../contents/ui/MainMenuButton.qml
+#: contents/ui/MainMenuButton.qml:152
+msgctxt "i18n@MainMenuButton.qml:152"
 msgid "Commands"
 msgstr "Opdrachten"
 
-#: ../contents/ui/MainMenuButton.qml
+#: contents/ui/MainMenuButton.qml:189
+msgctxt "i18n@MainMenuButton.qml:189"
 msgid "System Settings..."
 msgstr "Systeeminstellingen…"
 
-#: ../contents/ui/MainMenuButton.qml
+#: contents/ui/MainMenuButton.qml:196
+msgctxt "i18n@MainMenuButton.qml:196"
 msgid "App Store..."
 msgstr "Appwinkel…"
 
-#: ../contents/ui/MainMenuButton.qml
+#: contents/ui/MainMenuButton.qml:204
+msgctxt "i18n@MainMenuButton.qml:204"
 msgid "Force Quit..."
 msgstr "Gedwongen afsluiten…"
 
-#: ../contents/ui/MainMenuButton.qml
+#: contents/ui/MainMenuButton.qml:213
+msgctxt "i18n@MainMenuButton.qml:213"
 msgid "Sleep"
 msgstr "Slaapstand"
 
-#: ../contents/ui/MainMenuButton.qml
+#: contents/ui/MainMenuButton.qml:219
+msgctxt "i18n@MainMenuButton.qml:219"
 msgid "Restart..."
 msgstr "Herstarten…"
 
-#: ../contents/ui/MainMenuButton.qml
+#: contents/ui/MainMenuButton.qml:225
+msgctxt "i18n@MainMenuButton.qml:225"
 msgid "Shut Down..."
 msgstr "Afsluiten…"
 
-#: ../contents/ui/MainMenuButton.qml
+#: contents/ui/MainMenuButton.qml:233
+msgctxt "i18n@MainMenuButton.qml:233"
 msgid "Lock Screen"
 msgstr "Scherm vergrendelen"
 
-#: ../contents/ui/MainMenuButton.qml
-msgid "Log Out %1..."
-msgstr "‘%1’ afmelden…"
+#: contents/ui/config/configButtons.qml:32
+msgctxt "i18n@configButtons.qml:32"
+msgid "System Settings"
+msgstr "Systeeminstellingen"
 
-#: ../contents/ui/config/configCustom.qml
+#: contents/ui/config/configButtons.qml:33
+msgctxt "i18n@configButtons.qml:33"
+msgid "App Store"
+msgstr "Appwinkel"
+
+#: contents/ui/config/configButtons.qml:36
+msgctxt "i18n@configButtons.qml:36"
+msgid "Restart"
+msgstr "Herstarten"
+
+#: contents/ui/config/configButtons.qml:37
+msgctxt "i18n@configButtons.qml:37"
+msgid "Shutdown"
+msgstr "Afsluiten"
+
+#: contents/ui/config/configButtons.qml:39
+msgctxt "i18n@configButtons.qml:39"
+msgid "Log Out"
+msgstr "Afmelden"
+
+#: contents/ui/config/configCustom.qml:20
+msgctxt "i18n@configCustom.qml:20"
 msgid "Show custom commands in separate menu"
 msgstr "Eigen opdrachten in apart menu tonen"
 
-#: ../contents/ui/config/configCustom.qml
+#: contents/ui/config/configCustom.qml:26
+msgctxt "i18n@configCustom.qml:26"
 msgid "Custom commands menu title"
 msgstr "Naam van menu met eigen opdrachten"
 
-#: ../contents/ui/config/configCustom.qml
+#: contents/ui/config/configCustom.qml:40
+msgctxt "i18n@configCustom.qml:40"
 msgid "Add command"
 msgstr "Opdracht toevoegen"
 
-#: ../contents/ui/config/configCustom.qml
+#: contents/ui/config/configCustom.qml:51
+msgctxt "i18n@configCustom.qml:51"
 msgid "Clear command list"
 msgstr "Opdrachtenlijst wissen"
 
-#: ../contents/ui/config/configCustom.qml
+#: contents/ui/config/configCustom.qml:89
+msgctxt "i18n@configCustom.qml:89"
 msgid "Title"
 msgstr "Naam"
 
-#: ../contents/ui/config/configCustom.qml ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configCustom.qml:99
+msgctxt "i18n@configCustom.qml:99"
 msgid "Command"
 msgstr "Opdracht"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:36
+msgctxt "i18n@configGeneral.qml:36"
 msgid "Main"
 msgstr "Algemeen"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:45
+msgctxt "i18n@configGeneral.qml:45"
 msgid "Button shape"
 msgstr "Knopvorm"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:46
+msgctxt "i18n@configGeneral.qml:46"
 msgid "Rectangle"
 msgstr "Rechthoekig"
 
-#: ../contents/ui/config/configGeneral.qml
-msgid "Square"
-msgstr "Vierkant"
-
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:60
+msgctxt "i18n@configGeneral.qml:60"
 msgid "Global shortcut opens:"
 msgstr "Openen met globale sneltoets:"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:61
+msgctxt "i18n@configGeneral.qml:61"
 msgid "Plasmoid"
 msgstr "Plasmoid"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:70
+msgctxt "i18n@configGeneral.qml:70"
 msgid "Icon"
 msgstr "Pictogram"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:160
 msgctxt "@item:inmenu Open icon chooser dialog"
 msgid "Choose…"
 msgstr "Kiezen…"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:165
 msgctxt "@item:inmenu Reset icon to default"
 msgid "Clear Icon"
 msgstr "Pictogram wissen"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:182
+msgctxt "i18n@configGeneral.qml:182"
 msgid "Icon size"
 msgstr "Pictogramgrootte"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:183
+msgctxt "i18n@configGeneral.qml:183"
 msgid "Relative"
 msgstr "Inpassen"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:186
+msgctxt "i18n@configGeneral.qml:186"
 msgid "Fixed"
 msgstr "Vaste grootte"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:252
+msgctxt "i18n@configGeneral.qml:252"
 msgid "Preview icon size"
 msgstr "Grootte voorvertonen"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:267
+msgctxt "i18n@configGeneral.qml:267"
 msgid "Fit to root element"
 msgstr "Inpassen in hoofdelement"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:300
+msgctxt "i18n@configGeneral.qml:300"
 msgid "Override actions"
 msgstr "Acties instellen"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:310
+msgctxt "i18n@configGeneral.qml:310"
 msgid "About This PC action"
 msgstr "Over deze computer-actie"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:311
+msgctxt "i18n@configGeneral.qml:311"
 msgid "System"
 msgstr "Systeem"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:325
+msgctxt "i18n@configGeneral.qml:325"
 msgid "About this PC command"
 msgstr "Over deze computer-opdracht"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:327
+msgctxt "i18n@configGeneral.qml:327"
 msgid "Type here to override command"
 msgstr "Typ hier om de opdracht aan te passen"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:335
+msgctxt "i18n@configGeneral.qml:335"
 msgid "Clear field"
 msgstr "Veld wissen"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:343
+msgctxt "i18n@configGeneral.qml:343"
 msgid "Reset default"
 msgstr "Standaardwaarden terugzetten"
 
-#: ../contents/ui/config/configGeneral.qml
+#: contents/ui/config/configGeneral.qml:358
+msgctxt "i18n@configGeneral.qml:358"
 msgid "App Store command"
 msgstr "Appwinkelopdracht"
+
+#~ msgid "Do you want to force %1 to quit?"
+#~ msgstr "Weet je zeker dat je ‘%1’ gedwongen wilt afsluiten?"
+
+#~ msgctxt "force quit title"
+#~ msgid "Force Quit"
+#~ msgstr "Gedwongen afsluiten"
+
+#~ msgid "You can open this window by pressing %1."
+#~ msgstr "Open dit venster met behulp van de sneltoets ‘%1’."
+
+#~ msgid "Square"
+#~ msgstr "Vierkant"
