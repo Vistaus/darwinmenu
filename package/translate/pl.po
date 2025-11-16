@@ -1,0 +1,269 @@
+# Polish translation for Darwin Menu.
+# Copyright (C) 2025 RygorrMortis
+# This file is distributed under the same license as the Darwin Menu package.
+# RygorrMortis <rygorrmortis@github.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Darwin Menu\n"
+"Report-Msgid-Bugs-To: https://github.com/lasaczka/darwinmenu\n"
+"POT-Creation-Date: 2025-11-14 01:09+0300\n"
+"PO-Revision-Date: 2025-11-14 20:00+0100\n"
+"Last-Translator: RygorrMortis <rygorrmortis@github.com>\n"
+"Language-Team: Polish <pl@li.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Manual\n"
+
+#: contents/config/config.qml:6
+msgctxt "i18n@config.qml:6"
+msgid "General"
+msgstr "Ogólne"
+
+#: contents/config/config.qml:12
+msgctxt "i18n@config.qml:12"
+msgid "Buttons"
+msgstr "Przyciski"
+
+#: contents/config/config.qml:18
+msgctxt "i18n@config.qml:18"
+msgid "Custom commands"
+msgstr "Niestandardowe polecenia"
+
+#: contents/ui/ForceQuit/ConfirmationDialog.qml:87
+msgctxt "i18n@ConfirmationDialog.qml:87"
+msgid "You will lose any unsaved changes."
+msgstr "Stracisz wszystkie niezapisane zmiany."
+
+#: contents/ui/ForceQuit/ConfirmationDialog.qml:98
+msgctxt "i18n@ConfirmationDialog.qml:98"
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: contents/ui/ForceQuit/ConfirmationDialog.qml:105
+msgctxt "force quit action"
+msgid "Force Quit"
+msgstr "Wymuś zamknięcie"
+
+#: contents/ui/ForceQuit/ForceQuit.qml:45
+msgctxt "i18n@ForceQuit.qml:45"
+msgid "If an app doesn't respond for a while, select its name and click Force Quit."
+msgstr "Jeśli aplikacja nie odpowiada przez dłuższy czas, wybierz jej nazwę i kliknij „Wymuś zamknięcie”"
+
+#: contents/ui/ForceQuit/ForceQuit.qml:130
+msgctxt "i18n@ForceQuit.qml:130"
+msgid "Configure this window to open on global shortcut."
+msgstr "Skonfiguruj to okno, aby otwierało się za pomocą globalnego skrótu klawiszowego."
+
+#: contents/ui/MainMenuButton.qml:136
+msgctxt "i18n@MainMenuButton.qml:136"
+msgid "About This PC"
+msgstr "O tym komputerze"
+
+#: contents/ui/MainMenuButton.qml:152
+msgctxt "i18n@MainMenuButton.qml:152"
+msgid "Commands"
+msgstr "Polecenia"
+
+#: contents/ui/MainMenuButton.qml:189
+msgctxt "i18n@MainMenuButton.qml:189"
+msgid "System Settings..."
+msgstr "Ustawienia systemowe…"
+
+#: contents/ui/MainMenuButton.qml:196
+msgctxt "i18n@MainMenuButton.qml:196"
+msgid "App Store..."
+msgstr "Sklep z aplikacjami…"
+
+#: contents/ui/MainMenuButton.qml:204
+msgctxt "i18n@MainMenuButton.qml:204"
+msgid "Force Quit..."
+msgstr "Wymuś zamknięcie…"
+
+#: contents/ui/MainMenuButton.qml:213
+msgctxt "i18n@MainMenuButton.qml:213"
+msgid "Sleep"
+msgstr "Uśpij"
+
+#: contents/ui/MainMenuButton.qml:219
+msgctxt "i18n@MainMenuButton.qml:219"
+msgid "Restart..."
+msgstr "Uruchom ponownie…"
+
+#: contents/ui/MainMenuButton.qml:225
+msgctxt "i18n@MainMenuButton.qml:225"
+msgid "Shut Down..."
+msgstr "Wyłącz…"
+
+#: contents/ui/MainMenuButton.qml:233
+msgctxt "i18n@MainMenuButton.qml:233"
+msgid "Lock Screen"
+msgstr "Zablokuj ekran"
+
+#: contents/ui/MainMenuButton.qml:240
+msgctxt "i18n@MainMenuButton.qml:240"
+msgid "Log Out"
+msgstr "Wyloguj się"
+
+#: contents/ui/config/configButtons.qml:32
+msgctxt "i18n@configButtons.qml:32"
+msgid "System Settings"
+msgstr "Ustawienia systemowe"
+
+#: contents/ui/config/configButtons.qml:33
+msgctxt "i18n@configButtons.qml:33"
+msgid "App Store"
+msgstr "Sklep z aplikacjami"
+
+#: contents/ui/config/configButtons.qml:36
+msgctxt "i18n@configButtons.qml:36"
+msgid "Restart"
+msgstr "Uruchom ponownie"
+
+#: contents/ui/config/configButtons.qml:37
+msgctxt "i18n@configButtons.qml:37"
+msgid "Shutdown"
+msgstr "Wyłącz"
+
+#: contents/ui/config/configButtons.qml:39
+msgctxt "i18n@configButtons.qml:39"
+msgid "Log Out"
+msgstr "Wyloguj się"
+
+#: contents/ui/config/configCustom.qml:20
+msgctxt "i18n@configCustom.qml:20"
+msgid "Show custom commands in separate menu"
+msgstr "Pokaż niestandardowe polecenia w osobnym menu"
+
+#: contents/ui/config/configCustom.qml:26
+msgctxt "i18n@configCustom.qml:26"
+msgid "Custom commands menu title"
+msgstr "Tytuł menu niestandardowych poleceń"
+
+#: contents/ui/config/configCustom.qml:40
+msgctxt "i18n@configCustom.qml:40"
+msgid "Add command"
+msgstr "Dodaj polecenie"
+
+#: contents/ui/config/configCustom.qml:51
+msgctxt "i18n@configCustom.qml:51"
+msgid "Clear command list"
+msgstr "Wyczyść listę poleceń"
+
+#: contents/ui/config/configCustom.qml:89
+msgctxt "i18n@configCustom.qml:89"
+msgid "Title"
+msgstr "Tytuł"
+
+#: contents/ui/config/configCustom.qml:99
+msgctxt "i18n@configCustom.qml:99"
+msgid "Command"
+msgstr "Polecenie"
+
+#: contents/ui/config/configGeneral.qml:36
+msgctxt "i18n@configGeneral.qml:36"
+msgid "Main"
+msgstr "Główne"
+
+#: contents/ui/config/configGeneral.qml:45
+msgctxt "i18n@configGeneral.qml:45"
+msgid "Button shape"
+msgstr "Kształt przycisku"
+
+#: contents/ui/config/configGeneral.qml:46
+msgctxt "i18n@configGeneral.qml:46"
+msgid "Rectangle"
+msgstr "Prostokąt"
+
+#: contents/ui/config/configGeneral.qml:60
+msgctxt "i18n@configGeneral.qml:60"
+msgid "Global shortcut opens:"
+msgstr "Globalny skrót otwiera:"
+
+#: contents/ui/config/configGeneral.qml:61
+msgctxt "i18n@configGeneral.qml:61"
+msgid "Plasmoid"
+msgstr "Plazmoid"
+
+#: contents/ui/config/configGeneral.qml:70
+msgctxt "i18n@configGeneral.qml:70"
+msgid "Icon"
+msgstr "Ikona"
+
+#: contents/ui/config/configGeneral.qml:160
+msgctxt "@item:inmenu Open icon chooser dialog"
+msgid "Choose…"
+msgstr "Wybierz…"
+
+#: contents/ui/config/configGeneral.qml:165
+msgctxt "@item:inmenu Reset icon to default"
+msgid "Clear Icon"
+msgstr "Wyczyść ikonę"
+
+#: contents/ui/config/configGeneral.qml:182
+msgctxt "i18n@configGeneral.qml:182"
+msgid "Icon size"
+msgstr "Rozmiar ikony"
+
+#: contents/ui/config/configGeneral.qml:183
+msgctxt "i18n@configGeneral.qml:183"
+msgid "Relative"
+msgstr "Względny"
+
+#: contents/ui/config/configGeneral.qml:186
+msgctxt "i18n@configGeneral.qml:186"
+msgid "Fixed"
+msgstr "Stały"
+
+#: contents/ui/config/configGeneral.qml:252
+msgctxt "i18n@configGeneral.qml:252"
+msgid "Preview icon size"
+msgstr "Podgląd rozmiaru ikony"
+
+#: contents/ui/config/configGeneral.qml:267
+msgctxt "i18n@configGeneral.qml:267"
+msgid "Fit to root element"
+msgstr "Dopasuj do elementu głównego"
+
+#: contents/ui/config/configGeneral.qml:300
+msgctxt "i18n@configGeneral.qml:300"
+msgid "Override actions"
+msgstr "Nadpisz akcje"
+
+#: contents/ui/config/configGeneral.qml:310
+msgctxt "i18n@configGeneral.qml:310"
+msgid "About This PC action"
+msgstr "Akcja „O tym komputerze”"
+
+#: contents/ui/config/configGeneral.qml:311
+msgctxt "i18n@configGeneral.qml:311"
+msgid "System"
+msgstr "Systemowa"
+
+#: contents/ui/config/configGeneral.qml:325
+msgctxt "i18n@configGeneral.qml:325"
+msgid "About this PC command"
+msgstr "Polecenie „O tym komputerze”"
+
+#: contents/ui/config/configGeneral.qml:327
+msgctxt "i18n@configGeneral.qml:327"
+msgid "Type here to override command"
+msgstr "Wpisz tutaj, aby nadpisać polecenie"
+
+#: contents/ui/config/configGeneral.qml:335
+msgctxt "i18n@configGeneral.qml:335"
+msgid "Clear field"
+msgstr "Wyczyść pole"
+
+#: contents/ui/config/configGeneral.qml:343
+msgctxt "i18n@configGeneral.qml:343"
+msgid "Reset default"
+msgstr "Przywróć domyślne"
+
+#: contents/ui/config/configGeneral.qml:358
+msgctxt "i18n@configGeneral.qml:358"
+msgid "App Store command"
+msgstr "Polecenie sklepu z aplikacjami"
