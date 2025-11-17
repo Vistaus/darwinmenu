@@ -1,4 +1,7 @@
 # Darwin Menu
+[![KDE Store](https://img.shields.io/badge/KDE%20Store-Download?logo=kde&logoColor=%23e0e0e0&version&labelColor=%23FF748C&color=pink&style=for-the-badge)](https://store.kde.org/p/2157390/) &nbsp;
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/lasaczka/darwinmenu?logoColor=%23e0e0e0&label=&logo=github&labelColor=%23FF748C&color=pink&style=for-the-badge)](https://github.com/lasaczka/darwinmenu/releases/latest)
+
 Darwin menu is a Plasma applet that provides a menu system similar to that found on other operating systems. It allows users to access frequently used system settings and session controls.
 
 Menu supports adding custom commands, which can be placed in separate sub-menu or in common list.
