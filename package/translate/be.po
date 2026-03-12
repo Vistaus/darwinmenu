@@ -48,6 +48,18 @@ msgstr "Вы можаце адкрыць гэтае акно, націснуўш
 msgid "About This PC"
 msgstr "Пра гэты ПК"
 
+#: ../contents/ui/MainMenuButton.qml
+msgid "Recent Items"
+msgstr "Нядаўнія аб'екты"
+
+#: ../contents/ui/MainMenuButton.qml
+msgid "Clear Menu"
+msgstr "Ачысьціць меню"
+
+#: ../contents/ui/MainMenuButton.qml
+msgid "Refresh"
+msgstr "Абнавіць"
+
 
 #: ../contents/ui/MainMenuButton.qml
 msgid "Commands"
@@ -103,6 +115,14 @@ msgstr "Паказваць карыстальніцкія каманды ў ас
 msgid "Custom commands menu title"
 msgstr "Назва пункта мэню з камандамі"
 
+#: ../contents/ui/config/configCustom.qml
+msgid "Show icons for custom commands"
+msgstr "Паказваць значкі для карыстальніцкіх каманд"
+
+#: ../contents/ui/config/configCustom.qml
+msgid "Default icon name"
+msgstr "Перадвызначаная назва значка"
+
 
 #: ../contents/ui/config/configCustom.qml
 msgid "Add command"
@@ -147,6 +167,14 @@ msgstr "Квадрат"
 #: ../contents/ui/config/configGeneral.qml
 msgid "Global shortcut opens:"
 msgstr "Глябальны скарот адкрывае:"
+
+#: ../contents/ui/config/configGeneral.qml
+msgid "Menu items"
+msgstr "Пункты мэню"
+
+#: ../contents/ui/config/configGeneral.qml
+msgid "Show icons next to menu items"
+msgstr "Паказваць значкі побач з пунктамі мэню"
 
 
 #: ../contents/ui/config/configGeneral.qml
@@ -236,38 +264,31 @@ msgid "App Store command"
 msgstr "Каманда \"App Store\""
 
 
-#: ../contents/ui/config/configButtons.qml:33
-msgctxt "ListElement { key: \"showAppStoreButton\"; text: qsTr(\"App Store\"); checked: false }"
-msgid "App Store"
-msgstr ""
-
-
-#: ../contents/config/config.qml:12
-msgctxt "name: i18n(\"Buttons\")"
+#: ../contents/config/config.qml
 msgid "Buttons"
-msgstr ""
+msgstr "Кнопкі"
 
 
-#: ../contents/ui/config/configButtons.qml:39
-msgctxt "ListElement { key: \"showLogOutButton\"; text: qsTr(\"Log Out\"); checked: false }"
-msgid "Log Out"
-msgstr ""
-
-
-#: ../contents/ui/config/configButtons.qml:36
-msgctxt "ListElement { key: \"showRestartButton\"; text: qsTr(\"Restart\"); checked: false }"
-msgid "Restart"
-msgstr ""
-
-
-#: ../contents/ui/config/configButtons.qml:37
-msgctxt "ListElement { key: \"showShutdownButton\"; text: qsTr(\"Shutdown\"); checked: false }"
-msgid "Shutdown"
-msgstr ""
-
-
-#: ../contents/ui/config/configButtons.qml:32
-msgctxt "ListElement { key: \"showSystemSettingsButton\"; text: qsTr(\"System Settings\"); checked: false }"
+#: ../contents/ui/config/configButtons.qml
 msgid "System Settings"
-msgstr ""
+msgstr "Сыстэмныя налады"
 
+
+#: ../contents/ui/config/configButtons.qml
+msgid "App Store"
+msgstr "App Store"
+
+
+#: ../contents/ui/config/configButtons.qml
+msgid "Restart"
+msgstr "Перазапуск"
+
+
+#: ../contents/ui/config/configButtons.qml
+msgid "Shutdown"
+msgstr "Выключэньне"
+
+
+#: ../contents/ui/config/configButtons.qml
+msgid "Log Out"
+msgstr "Выйсьці"

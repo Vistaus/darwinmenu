@@ -20,6 +20,7 @@ KCM.SimpleKCM {
     property bool cfg_useCustomButtonImage: Plasmoid.configuration.useCustomButtonImage
     property string cfg_customButtonImage: Plasmoid.configuration.customButtonImage
     property bool cfg_resizeIconToRoot: resizeIconToRoot.checked
+    property bool cfg_showMenuItemIcons: Plasmoid.configuration.showMenuItemIcons
 
     property bool cfg_shortcutOpensPlasmoid: Plasmoid.configuration.shortcutOpensPlasmoid
     property bool cfg_aboutThisPCUseCommand: Plasmoid.configuration.aboutThisPCUseCommand
@@ -63,6 +64,13 @@ KCM.SimpleKCM {
             onCurrentIndexChanged: {
                 configGeneral.cfg_shortcutOpensPlasmoid = model[currentIndex] === i18n("Plasmoid")
             }
+        }
+
+        CheckBox {
+            Kirigami.FormData.label: i18n("Menu items")
+            text: i18n("Show icons next to menu items")
+            checked: configGeneral.cfg_showMenuItemIcons
+            onToggled: configGeneral.cfg_showMenuItemIcons = checked
         }
 
         Kirigami.Separator {

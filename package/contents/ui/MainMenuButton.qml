@@ -25,8 +25,46 @@ AbstractButton {
     readonly property bool customCommandsInSeparateMenu: Plasmoid.configuration.customCommandsInSeparateMenu
         ?? Plasmoid.configuration.customCommandsInSeparateMenuDefault
     readonly property string customCommandsMenuTitle: Plasmoid.configuration.customCommandsMenuTitle ?? ""
+    readonly property bool showMenuItemIcons: Plasmoid.configuration.showMenuItemIcons ?? false
+    readonly property bool showCustomCommandIcons: Plasmoid.configuration.showCustomCommandIcons ?? true
+    readonly property string defaultCustomCommandIcon: Plasmoid.configuration.defaultCustomCommandIcon ?? "utilities-terminal"
 
     property var customCommands: []
+
+    function reloadCustomCommands() {
+        const commands = []
+
+        for (const rawCommand of (Plasmoid.configuration.commands ?? [])) {
+            try {
+                const command = JSON.parse(rawCommand)
+                const text = (command.text ?? "").trim()
+                const executable = (command.command ?? "").trim()
+
+                if (text.length === 0 && executable.length === 0) {
+                    continue
+                }
+
+                commands.push(command)
+            } catch (error) {
+            }
+        }
+
+        customCommands = commands
+    }
+
+    function customCommandIcon(iconName) {
+        if (!showMenuItemIcons || !showCustomCommandIcons) {
+            return ""
+        }
+
+        return iconName?.length > 0
+            ? iconName
+            : (defaultCustomCommandIcon?.length > 0 ? defaultCustomCommandIcon : "utilities-terminal")
+    }
+
+    RecentItems {
+        id: recentItems
+    }
 
     enum State {
         Rest,
@@ -64,19 +102,13 @@ AbstractButton {
         id: kUser
     }
 
-    onCustomCommandsConfigChanged: {
-        let commands = [];
-        for (const command of Plasmoid.configuration.commands ?? []) {
-            const data = JSON.parse(command)
-            commands.push(data)
-        }
-        customCommands = commands
-    }
+    onCustomCommandsConfigChanged: reloadCustomCommands()
+    Component.onCompleted: reloadCustomCommands()
 
     onCustomCommandsChanged: {
         customMenuEntries.clear()
         for (const command of customCommands) {
-            customMenuEntries.append(command);
+            customMenuEntries.append(command)
         }
     }
 
@@ -128,15 +160,55 @@ AbstractButton {
     QtLabs.Menu {
         id: menu
         property bool isOpened: false
-        readonly property int customCommandsEntryStartIndex: 2
+        readonly property int customCommandsEntryStartIndex: 4
 
         QtLabs.MenuItem {
             id: aboutThisPCMenuItem
             visible: Plasmoid.configuration.showAboutThisPCButton
             text: i18n("About This PC")
+            icon.name: menuButton.showMenuItemIcons ? "computer-laptop" : ""
             onTriggered: menuButton.aboutThisPCUseCommand
                 ? executable.exec(menuButton.aboutThisPCCommand)
                 : KCMLauncher.openInfoCenter("")
+        }
+
+        QtLabs.MenuSeparator {
+            visible: Plasmoid.configuration.showAboutThisPCButton
+        }
+
+        QtLabs.Menu {
+            id: recentItemsMenu
+            title: i18n("Recent Items")
+            icon.name: menuButton.showMenuItemIcons ? "clock" : ""
+
+            Instantiator {
+                model: recentItems.recentDocs
+                delegate: QtLabs.MenuItem {
+                    text: modelData.name
+                    icon.name: menuButton.showMenuItemIcons ? modelData.icon : ""
+                    onTriggered: Qt.openUrlExternally(modelData.url)
+                }
+
+                onObjectAdded: (index, object) => recentItemsMenu.insertItem(index, object)
+                onObjectRemoved: (index, object) => recentItemsMenu.removeItem(object)
+            }
+
+            QtLabs.MenuSeparator {
+                visible: recentItems.recentDocs.length > 0
+            }
+
+            QtLabs.MenuItem {
+                text: i18n("Clear Menu")
+                visible: recentItems.recentDocs.length > 0
+                icon.name: menuButton.showMenuItemIcons ? "edit-clear-history" : ""
+                onTriggered: recentItems.clearRecentItems()
+            }
+
+            QtLabs.MenuItem {
+                text: i18n("Refresh")
+                icon.name: menuButton.showMenuItemIcons ? "view-refresh" : ""
+                onTriggered: recentItems.loadRecentItems()
+            }
         }
 
         QtLabs.MenuSeparator {}
@@ -150,18 +222,19 @@ AbstractButton {
             enabled: menuButton.customCommandsInSeparateMenu && customMenuEntries.count > 0
             visible: menuButton.customCommandsInSeparateMenu
             title: menuButton.customCommandsMenuTitle?.length > 0 ? menuButton.customCommandsMenuTitle : i18n("Commands")
+            readonly property int customCommandsEntryStartIndex: 0
+
             Instantiator {
                 model: menuButton.customCommandsInSeparateMenu ? customMenuEntries : []
                 active: menuButton.customCommandsInSeparateMenu
                 delegate: QtLabs.MenuItem {
                     text: model.text
-                    onTriggered: {
-                        executable.exec(model.command)
-                    }
+                    icon.name: menuButton.customCommandIcon(model.icon ?? "")
+                    onTriggered: executable.exec(model.command)
                 }
 
                 onObjectAdded: (index, object) => customCommandsSubMenu.insertItem(
-                    customCommandsSubMenu.customCommandsEntryStartIndex,
+                    customCommandsSubMenu.customCommandsEntryStartIndex + index,
                     object
                 )
                 onObjectRemoved: (index, object) => customCommandsSubMenu.removeItem(object)
@@ -172,12 +245,11 @@ AbstractButton {
             active: !menuButton.customCommandsInSeparateMenu
             delegate: QtLabs.MenuItem {
                 text: model.text
-                onTriggered: {
-                    executable.exec(model.command)
-                }
+                icon.name: menuButton.customCommandIcon(model.icon ?? "")
+                onTriggered: executable.exec(model.command)
             }
 
-            onObjectAdded: (index, object) => menu.insertItem(menu.customCommandsEntryStartIndex, object)
+            onObjectAdded: (index, object) => menu.insertItem(menu.customCommandsEntryStartIndex + index, object)
             onObjectRemoved: (index, object) => menu.removeItem(object)
         }
 
@@ -187,6 +259,7 @@ AbstractButton {
             id: systemSettingsMenuItem
             visible: Plasmoid.configuration.showSystemSettingsButton
             text: i18n("System Settings...")
+            icon.name: menuButton.showMenuItemIcons ? "settings-configure" : ""
             onTriggered: KCMLauncher.openSystemSettings("")
         }
 
@@ -194,6 +267,7 @@ AbstractButton {
             id: appStoreMenuItem
             visible: Plasmoid.configuration.showAppStoreButton
             text: i18n("App Store...")
+            icon.name: menuButton.showMenuItemIcons ? "applications-other-symbolic" : ""
             onTriggered: executable.exec(menuButton.appStoreCommand)
         }
 
@@ -202,6 +276,7 @@ AbstractButton {
         QtLabs.MenuItem {
             visible: Plasmoid.configuration.showForceQuitButton
             text: i18n("Force Quit...")
+            icon.name: menuButton.showMenuItemIcons ? "process-stop-symbolic" : ""
             onTriggered: root.forceQuit.show()
             shortcut: Plasmoid.configuration.shortcutOpensPlasmoid ? null : plasmoid.globalShortcut
         }
@@ -211,18 +286,21 @@ AbstractButton {
         QtLabs.MenuItem {
             visible: Plasmoid.configuration.showSleepButton && sm.canSuspend
             text: i18n("Sleep")
+            icon.name: menuButton.showMenuItemIcons ? "system-suspend" : ""
             onTriggered: sm.suspend()
         }
 
         QtLabs.MenuItem {
             visible: Plasmoid.configuration.showRestartButton
             text: i18n("Restart...")
+            icon.name: menuButton.showMenuItemIcons ? "system-reboot" : ""
             onTriggered: sm.requestReboot()
         }
 
         QtLabs.MenuItem {
             visible: Plasmoid.configuration.showShutdownButton
             text: i18n("Shut Down...")
+            icon.name: menuButton.showMenuItemIcons ? "system-shutdown" : ""
             onTriggered: sm.requestShutdown()
         }
 
@@ -231,6 +309,7 @@ AbstractButton {
         QtLabs.MenuItem {
             visible: Plasmoid.configuration.showLockScreenButton
             text: i18n("Lock Screen")
+            icon.name: menuButton.showMenuItemIcons ? "system-lock-screen" : ""
             shortcut: "Meta+L"
             onTriggered: sm.lock()
         }
@@ -238,12 +317,16 @@ AbstractButton {
         QtLabs.MenuItem {
             visible: Plasmoid.configuration.showLogOutButton
             text: i18n("Log Out %1...", kUser.fullName)
+            icon.name: menuButton.showMenuItemIcons ? "system-log-out" : ""
             shortcut: "Ctrl+Alt+Delete"
             onTriggered: sm.requestLogout()
         }
 
         onAboutToHide: menu.isOpened = false
-        onAboutToShow: menu.isOpened = true
+        onAboutToShow: {
+            menu.isOpened = true
+            recentItems.loadRecentItems()
+        }
     }
 
     Plasma5Support.DataSource {
@@ -259,10 +342,4 @@ AbstractButton {
         }
     }
 
-    Connections {
-    target: Plasmoid
-        function onConfigurationChanged() {
-            menu.forceLayout()
-        }
-    }
 }

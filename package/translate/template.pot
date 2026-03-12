@@ -56,43 +56,58 @@ msgctxt "i18n@MainMenuButton.qml:136"
 msgid "About This PC"
 msgstr ""
 
-#: contents/ui/MainMenuButton.qml:152
-msgctxt "i18n@MainMenuButton.qml:152"
+#: contents/ui/MainMenuButton.qml:154
+msgctxt "i18n@MainMenuButton.qml:154"
+msgid "Recent Items"
+msgstr ""
+
+#: contents/ui/MainMenuButton.qml:176
+msgctxt "i18n@MainMenuButton.qml:176"
+msgid "Clear Menu"
+msgstr ""
+
+#: contents/ui/MainMenuButton.qml:182
+msgctxt "i18n@MainMenuButton.qml:182"
+msgid "Refresh"
+msgstr ""
+
+#: contents/ui/MainMenuButton.qml:193
+msgctxt "i18n@MainMenuButton.qml:193"
 msgid "Commands"
 msgstr ""
 
-#: contents/ui/MainMenuButton.qml:189
-msgctxt "i18n@MainMenuButton.qml:189"
+#: contents/ui/MainMenuButton.qml:228
+msgctxt "i18n@MainMenuButton.qml:228"
 msgid "System Settings..."
 msgstr ""
 
-#: contents/ui/MainMenuButton.qml:196
-msgctxt "i18n@MainMenuButton.qml:196"
+#: contents/ui/MainMenuButton.qml:236
+msgctxt "i18n@MainMenuButton.qml:236"
 msgid "App Store..."
 msgstr ""
 
-#: contents/ui/MainMenuButton.qml:204
-msgctxt "i18n@MainMenuButton.qml:204"
+#: contents/ui/MainMenuButton.qml:245
+msgctxt "i18n@MainMenuButton.qml:245"
 msgid "Force Quit..."
 msgstr ""
 
-#: contents/ui/MainMenuButton.qml:213
-msgctxt "i18n@MainMenuButton.qml:213"
+#: contents/ui/MainMenuButton.qml:255
+msgctxt "i18n@MainMenuButton.qml:255"
 msgid "Sleep"
 msgstr ""
 
-#: contents/ui/MainMenuButton.qml:219
-msgctxt "i18n@MainMenuButton.qml:219"
+#: contents/ui/MainMenuButton.qml:262
+msgctxt "i18n@MainMenuButton.qml:262"
 msgid "Restart..."
 msgstr ""
 
-#: contents/ui/MainMenuButton.qml:225
-msgctxt "i18n@MainMenuButton.qml:225"
+#: contents/ui/MainMenuButton.qml:269
+msgctxt "i18n@MainMenuButton.qml:269"
 msgid "Shut Down..."
 msgstr ""
 
-#: contents/ui/MainMenuButton.qml:233
-msgctxt "i18n@MainMenuButton.qml:233"
+#: contents/ui/MainMenuButton.qml:278
+msgctxt "i18n@MainMenuButton.qml:278"
 msgid "Lock Screen"
 msgstr ""
 
@@ -133,22 +148,37 @@ msgstr ""
 
 #: contents/ui/config/configCustom.qml:40
 msgctxt "i18n@configCustom.qml:40"
+msgid "Show icons for custom commands"
+msgstr ""
+
+#: contents/ui/config/configCustom.qml:48
+msgctxt "i18n@configCustom.qml:48"
+msgid "Default icon name"
+msgstr ""
+
+#: contents/ui/config/configCustom.qml:64
+msgctxt "i18n@configCustom.qml:64"
 msgid "Add command"
 msgstr ""
 
-#: contents/ui/config/configCustom.qml:51
-msgctxt "i18n@configCustom.qml:51"
+#: contents/ui/config/configCustom.qml:77
+msgctxt "i18n@configCustom.qml:77"
 msgid "Clear command list"
 msgstr ""
 
-#: contents/ui/config/configCustom.qml:89
-msgctxt "i18n@configCustom.qml:89"
+#: contents/ui/config/configCustom.qml:139
+msgctxt "i18n@configCustom.qml:139"
 msgid "Title"
 msgstr ""
 
-#: contents/ui/config/configCustom.qml:99
-msgctxt "i18n@configCustom.qml:99"
+#: contents/ui/config/configCustom.qml:147
+msgctxt "i18n@configCustom.qml:147"
 msgid "Command"
+msgstr ""
+
+#: contents/ui/config/configCustom.qml:155
+msgctxt "i18n@configCustom.qml:155"
+msgid "Icon"
 msgstr ""
 
 #: contents/ui/config/configGeneral.qml:36
@@ -171,13 +201,23 @@ msgctxt "i18n@configGeneral.qml:60"
 msgid "Global shortcut opens:"
 msgstr ""
 
-#: contents/ui/config/configGeneral.qml:61
-msgctxt "i18n@configGeneral.qml:61"
+#: contents/ui/config/configGeneral.qml:68
+msgctxt "i18n@configGeneral.qml:68"
+msgid "Menu items"
+msgstr ""
+
+#: contents/ui/config/configGeneral.qml:69
+msgctxt "i18n@configGeneral.qml:69"
+msgid "Show icons next to menu items"
+msgstr ""
+
+#: contents/ui/config/configGeneral.qml:77
+msgctxt "i18n@configGeneral.qml:77"
 msgid "Plasmoid"
 msgstr ""
 
-#: contents/ui/config/configGeneral.qml:70
-msgctxt "i18n@configGeneral.qml:70"
+#: contents/ui/config/configGeneral.qml:86
+msgctxt "i18n@configGeneral.qml:86"
 msgid "Icon"
 msgstr ""
 
@@ -255,4 +295,3 @@ msgstr ""
 msgctxt "i18n@configGeneral.qml:358"
 msgid "App Store command"
 msgstr ""
-

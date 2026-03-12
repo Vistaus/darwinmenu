@@ -59,6 +59,11 @@
       <label>Use command for App Store action</label>
       <default>plasma-discover</default>
     </entry>
+
+    <entry name="showMenuItemIcons" type="Bool">
+      <label>Show icons next to menu items</label>
+      <default>false</default>
+    </entry>
   </group>
 
   <group name="Custom">
@@ -80,6 +85,16 @@
     <entry name="commands" type="StringList">
       <label>List of custom commands</label>
       <default></default>
+    </entry>
+
+    <entry name="showCustomCommandIcons" type="Bool">
+      <label>Show icons for custom commands</label>
+      <default>true</default>
+    </entry>
+
+    <entry name="defaultCustomCommandIcon" type="String">
+      <label>Default icon for custom commands</label>
+      <default>utilities-terminal</default>
     </entry>
   </group>
 
@@ -130,6 +145,5 @@
     </entry>
   </group>
 </kcfg>
-
 
 
